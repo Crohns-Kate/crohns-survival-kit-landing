@@ -1,0 +1,21 @@
+{
+  "name": "neurogut-acoustics-landing",
+  "version": "1.0.0",
+  "description": "Marketing website for NeuroGut Acoustics™ - A non-invasive GI sound insights and gut-brain awareness platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "digital-health",
+    "gut-health",
+    "wellbeing",
+    "neurogut"
+  ],
+  "author": "Dr. Michael Bishopp",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
