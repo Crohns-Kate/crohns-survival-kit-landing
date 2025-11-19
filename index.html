@@ -33,11 +33,26 @@
 
         /* Custom gradient */
         .gradient-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=900&fit=crop&q=80') center/cover;
+            position: relative;
         }
 
         .gradient-section {
             background: linear-gradient(to bottom, #ffffff 0%, #f7f9fc 100%);
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .section-bg-img {
+            position: relative;
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
@@ -120,47 +135,67 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
-                        🎙️
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop&q=80"
+                         alt="Smartphone on abdomen for sound recording"
+                         class="feature-img">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            🎙️
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">GI Sound Check</h3>
+                        <p class="text-gray-600">
+                            Use your smartphone to capture short recordings of gut sounds by placing it gently on your abdomen—completely non-invasive.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">GI Sound Check</h3>
-                    <p class="text-gray-600">
-                        Use your smartphone to capture short recordings of gut sounds by placing it gently on your abdomen—completely non-invasive.
-                    </p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
-                        📊
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&q=80"
+                         alt="Data patterns and AI analysis visualization"
+                         class="feature-img">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            📊
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Pattern Insights</h3>
+                        <p class="text-gray-600">
+                            AI-assisted analysis highlights general activity patterns—like quieter periods, more active times, or clustered sounds. Non-diagnostic awareness.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Pattern Insights</h3>
-                    <p class="text-gray-600">
-                        AI-assisted analysis highlights general activity patterns—like quieter periods, more active times, or clustered sounds. Non-diagnostic awareness.
-                    </p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
-                        🧠
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=500&h=300&fit=crop&q=80"
+                         alt="Mind-body connection and wellness"
+                         class="feature-img">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            🧠
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Gut–Brain Awareness</h3>
+                        <p class="text-gray-600">
+                            Log stress levels, sleep quality, meals, and mood to see how they might relate to your gut activity over time.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Gut–Brain Awareness</h3>
-                    <p class="text-gray-600">
-                        Log stress levels, sleep quality, meals, and mood to see how they might relate to your gut activity over time.
-                    </p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                    <div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
-                        💡
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop&q=80"
+                         alt="Doctor patient conversation and collaboration"
+                         class="feature-img">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            💡
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Better Conversations</h3>
+                        <p class="text-gray-600">
+                            Export a simple summary of your patterns to share with family or bring to clinician appointments for more informed discussions.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Better Conversations</h3>
-                    <p class="text-gray-600">
-                        Export a simple summary of your patterns to share with family or bring to clinician appointments for more informed discussions.
-                    </p>
                 </div>
             </div>
 
@@ -316,10 +351,11 @@
 
             <div class="bg-soft-gray p-8 md:p-12 rounded-2xl">
                 <div class="flex items-center justify-center mb-6">
-                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">
-                        MB
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&q=80"
+                         alt="Dr. Michael Bishopp - Founder"
+                         class="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-white">
                 </div>
+                <p class="text-center text-sm text-gray-500 mb-4 italic">Replace this placeholder with your professional headshot</p>
 
                 <h3 class="text-2xl font-semibold text-center mb-4 text-gray-800">Dr. Michael Bishopp</h3>
                 <p class="text-gray-700 leading-relaxed mb-6">
