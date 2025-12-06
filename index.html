@@ -6,6 +6,11 @@
     <title>NeuroGut Acoustics™ | Non-invasive GI Sound Insights & Gut-Brain Awareness</title>
     <meta name="description" content="A non-invasive, smartphone-based GI sound and daily pattern awareness platform helping people understand gut activity, stress states, and lifestyle rhythms.">
 
+    <!-- Modern AI-Tech Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -15,18 +20,18 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-navy': '#0B1120',
-                        'primary-dark': '#111827',
-                        'accent-teal': '#14B8A6',
-                        'accent-amber': '#F59E0B',
-                        'accent-green': '#22C55E',
-                        'bg-light': '#F9FAFB',
-                        'bg-panel': '#F3F4F6',
-                        'text-primary': '#0F172A',
-                        'text-secondary': '#374151',
+                        'ai-dark': '#020617',
+                        'ai-darker': '#0A0A0A',
+                        'ai-navy': '#0B1120',
+                        'ai-cyan': '#00E5FF',
+                        'ai-neon': '#7CFFB2',
+                        'ai-purple': '#9D4EDD',
+                        'ai-grey': '#94A3B8',
+                        'ai-light': '#F1F5F9',
                     },
                     fontFamily: {
-                        'sans': ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -34,22 +39,87 @@
     </script>
 
     <style>
+        /* ============================================
+           AI-TECH DESIGN SYSTEM
+           ============================================ */
+
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Professional system font stack */
+        /* AI-Tech font stack and anti-aliasing */
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background: #020617;
+            color: #F1F5F9;
         }
 
-        /* Clean hero background */
+        /* Neural mesh background */
+        .neural-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image:
+                linear-gradient(rgba(0, 229, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Animated gradient blobs */
+        @keyframes blob-float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: blob-float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #00E5FF 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #9D4EDD 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -10s;
+        }
+
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #7CFFB2 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            animation-delay: -5s;
+        }
+
+        /* AI Hero Section */
         .hero-bg {
-            background: linear-gradient(135deg, #0B1120 0%, #1E293B 100%);
+            background: linear-gradient(135deg, #020617 0%, #0B1120 50%, #1E0A3E 100%);
             position: relative;
+            overflow: hidden;
         }
 
         .hero-bg::before {
@@ -59,8 +129,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=900&fit=crop&q=80') center/cover;
-            opacity: 0.08;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 50%);
             z-index: 0;
         }
 
@@ -69,97 +140,197 @@
             z-index: 1;
         }
 
+        /* AI Waveform SVG container */
+        .waveform-container {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            height: 300px;
+            opacity: 0.15;
+            overflow: hidden;
+        }
+
+        @keyframes wave-pulse {
+            0%, 100% { transform: scaleY(1); opacity: 0.15; }
+            50% { transform: scaleY(1.3); opacity: 0.25; }
+        }
+
+        .waveform-svg {
+            animation: wave-pulse 4s ease-in-out infinite;
+        }
+
         .feature-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
-        /* Subtle accent line */
+        /* Neon accent line */
         .accent-line {
-            width: 60px;
-            height: 4px;
-            background: #14B8A6;
-            margin: 0 auto 1.5rem;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #00E5FF 0%, #7CFFB2 100%);
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
         }
 
-        /* Professional button styles */
+        /* Section labels */
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #00E5FF;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* AI-tech button styles */
         .btn-primary {
-            background: #14B8A6;
-            color: white;
-            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #00E5FF 0%, #0077FF 100%);
+            color: #020617;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #7CFFB2 0%, #00E5FF 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
         }
 
         .btn-primary:hover {
-            background: #0F9688;
-            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #0B1120;
-            border: 2px solid #E5E7EB;
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            border-color: #14B8A6;
-            color: #14B8A6;
-        }
-
-        /* Clean card hover effects */
-        .feature-card {
-            transition: all 0.3s ease;
-            border: 1px solid #E5E7EB;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            border-color: #14B8A6;
+            box-shadow:
+                0 0 30px rgba(0, 229, 255, 0.5),
+                0 0 60px rgba(0, 229, 255, 0.3);
             transform: translateY(-2px);
         }
 
-        /* Minimal icon badges */
+        .btn-primary > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-secondary {
+            background: rgba(0, 229, 255, 0.05);
+            color: #00E5FF;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 229, 255, 0.1);
+            border-color: #00E5FF;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Glassmorphism cards */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(0, 229, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* Feature card hover effects */
+        .feature-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            background: rgba(15, 23, 42, 0.7);
+            border-color: rgba(0, 229, 255, 0.4);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 50px rgba(0, 229, 255, 0.15);
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        /* AI icon badges with glow */
         .icon-badge {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #14B8A6 0%, #0F9688 100%);
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #00E5FF 0%, #0077FF 100%);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+            position: relative;
         }
 
-        /* Simple icon symbols */
+        .icon-badge::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #00E5FF, #7CFFB2);
+            border-radius: 16px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .icon-badge:hover::before {
+            opacity: 0.5;
+        }
+
+        /* Problem icon with neon ring */
         .problem-icon {
-            width: 56px;
-            height: 56px;
-            background: #E0F2FE;
-            border: 2px solid #14B8A6;
+            width: 64px;
+            height: 64px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 2px solid rgba(0, 229, 255, 0.5);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: #14B8A6;
+            color: #00E5FF;
             flex-shrink: 0;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
         }
 
         .audience-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #14B8A6 0%, #0F9688 100%);
-            border-radius: 12px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(124, 255, 178, 0.2) 100%);
+            border: 2px solid rgba(0, 229, 255, 0.4);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            font-weight: 600;
-            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            color: #00E5FF;
             flex-shrink: 0;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
         }
 
         /* ============================================
@@ -387,75 +558,108 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased">
+<body class="font-sans antialiased">
+
+    <!-- Neural Mesh Background -->
+    <div class="neural-mesh"></div>
+
+    <!-- Animated Gradient Blobs -->
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <div class="gradient-blob blob-3"></div>
 
     <!-- Premium Notification Container -->
-    <div id="notification-container" class="notification-container"></div>
+    <div id="notification-container" class="notification-container" style="z-index: 10000;"></div>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white py-24 px-6 md:py-40">
-        <div class="hero-content max-w-5xl mx-auto text-center">
-            <div class="inline-block px-4 py-2 bg-accent-teal/10 border border-accent-teal/30 rounded-full text-accent-teal text-sm font-medium mb-8">
-                Early concept · Exploring partners
+    <section class="hero-bg text-white py-32 px-6 md:py-48 relative">
+        <div class="hero-content max-w-6xl mx-auto text-center">
+            <div class="section-label text-center mb-4">
+                EARLY CONCEPT / EXPLORING PARTNERS
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-8 text-white tracking-tight leading-tight">
-                Listen to your gut. Literally.
+            <div class="inline-block px-5 py-2 bg-ai-cyan/10 border border-ai-cyan/30 rounded-full text-ai-cyan text-xs font-semibold mb-10 backdrop-blur-sm">
+                AI-Powered Bio-Acoustic Sensing
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-10 text-white tracking-tight leading-none">
+                Listen to your gut.<br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-ai-cyan via-ai-neon to-ai-purple">Literally.</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-300 font-medium max-w-4xl mx-auto leading-relaxed">
-                NeuroGut Acoustics™ is a smartphone-based app that listens to your gut sounds and helps you connect butterflies, gurgles, and flutters with your stress, food, and daily rhythms.
+            <p class="text-xl md:text-2xl mb-8 text-ai-grey font-medium max-w-4xl mx-auto leading-relaxed">
+                NeuroGut Acoustics™ is a smartphone-based app that listens to your gut sounds and helps you connect <span class="text-ai-neon">butterflies</span>, <span class="text-ai-cyan">gurgles</span>, and <span class="text-ai-purple">flutters</span> with your stress, food, and daily rhythms.
             </p>
-            <p class="text-base md:text-lg mb-12 text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-base md:text-lg mb-14 text-ai-grey/80 max-w-3xl mx-auto leading-relaxed">
                 Instead of guessing what your gut is doing, you can capture short sound check-ins, combine them with mood and stress logs, and start seeing patterns over time. It's a wellbeing tool to help you understand your own body better today—with a long-term vision for research and clinical collaboration tomorrow.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#who-its-for" class="btn-primary inline-block font-semibold px-8 py-4 rounded-lg">
-                    I'm interested as a user
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a href="#who-its-for" class="btn-primary inline-block font-semibold px-10 py-5 rounded-xl text-base">
+                    <span>I'm interested as a user</span>
                 </a>
-                <a href="#partners" class="btn-secondary inline-block font-semibold px-8 py-4 rounded-lg">
+                <a href="#partners" class="btn-secondary inline-block font-semibold px-10 py-5 rounded-xl text-base">
                     I'm a clinician or partner
                 </a>
             </div>
         </div>
+
+        <!-- AI Waveform -->
+        <div class="waveform-container">
+            <svg class="waveform-svg w-full h-full" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 150 Q 100 100, 200 150 T 400 150 Q 500 200, 600 150 T 800 150 Q 900 100, 1000 150 T 1200 150"
+                      stroke="url(#waveGradient)" stroke-width="3" fill="none" opacity="0.6"/>
+                <path d="M0 150 Q 150 120, 300 150 T 600 150 Q 750 180, 900 150 T 1200 150"
+                      stroke="url(#waveGradient2)" stroke-width="2" fill="none" opacity="0.4"/>
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#00E5FF;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#7CFFB2;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00E5FF;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
     </section>
 
     <!-- The Problem Section -->
-    <section class="py-20 px-6 md:py-32 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
+    <section class="py-24 px-6 md:py-40 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">CHALLENGES /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
                     Navigating Gut Challenges Can Feel Overwhelming
                 </h2>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="problem-icon mb-4">~</div>
-                    <h3 class="text-xl font-semibold mb-3 text-text-primary">Butterflies, flutters, and gurgles</h3>
-                    <p class="text-text-secondary leading-relaxed">
+                <div class="glass-card p-10">
+                    <div class="problem-icon mb-6">~</div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Butterflies, flutters, and gurgles</h3>
+                    <p class="text-ai-grey leading-relaxed">
                         Some days your gut feels like a calm pond. Other days it's buzzing, churning, or strangely quiet—and you're not sure why.
                     </p>
                 </div>
 
-                <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="problem-icon mb-4">⚡</div>
-                    <h3 class="text-xl font-semibold mb-3 text-text-primary">Stress makes everything louder</h3>
-                    <p class="text-text-secondary leading-relaxed">
+                <div class="glass-card p-10">
+                    <div class="problem-icon mb-6">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Stress makes everything louder</h3>
+                    <p class="text-ai-grey leading-relaxed">
                         You notice that big emotions, conflict, or pressure seem to hit your gut first. But it's hard to prove or explain that to anyone else.
                     </p>
                 </div>
 
-                <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="problem-icon mb-4">?</div>
-                    <h3 class="text-xl font-semibold mb-3 text-text-primary">Invisible activity</h3>
-                    <p class="text-text-secondary leading-relaxed">
+                <div class="glass-card p-10">
+                    <div class="problem-icon mb-6">?</div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Invisible activity</h3>
+                    <p class="text-ai-grey leading-relaxed">
                         Gut sounds and rhythms are mostly hidden. You might sense them, but there's no simple way to observe or track what's really happening.
                     </p>
                 </div>
 
-                <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="problem-icon mb-4">···</div>
-                    <h3 class="text-xl font-semibold mb-3 text-text-primary">Hard to explain to others</h3>
-                    <p class="text-text-secondary leading-relaxed">
+                <div class="glass-card p-10">
+                    <div class="problem-icon mb-6">···</div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Hard to explain to others</h3>
+                    <p class="text-ai-grey leading-relaxed">
                         When you talk to family, friends, or clinicians, it can be difficult to describe what your gut feels like day-to-day in a way that makes sense.
                     </p>
                 </div>
@@ -464,78 +668,79 @@
     </section>
 
     <!-- How NeuroGut Acoustics Helps -->
-    <section id="how-it-helps" class="py-20 px-6 md:py-32 bg-bg-light">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
+    <section id="how-it-helps" class="py-24 px-6 md:py-40 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">FEATURES /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
                     How NeuroGut Acoustics™ Helps
                 </h2>
-                <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+                <p class="text-lg text-ai-grey max-w-3xl mx-auto">
                     A wellbeing and self-management platform designed to give you insight and awareness—not diagnosis or treatment.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-lg feature-card overflow-hidden">
+                <div class="feature-card rounded-xl overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop&q=80"
                          alt="Smartphone on abdomen for sound recording"
-                         class="feature-img">
-                    <div class="p-6">
-                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                         class="feature-img opacity-60">
+                    <div class="p-7">
+                        <div class="icon-badge mb-5" style="font-size: 20px; font-weight: 600;">
                             ♪
                         </div>
-                        <h3 class="text-lg font-semibold mb-3 text-text-primary">GI Sound Check</h3>
-                        <p class="text-text-secondary text-sm leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">GI Sound Check</h3>
+                        <p class="text-ai-grey text-sm leading-relaxed">
                             Use your smartphone like a gentle stethoscope. Rest it on your abdomen for short check-ins and capture the natural sounds your gut is already making. Non-invasive, no extra hardware.
                         </p>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white rounded-lg feature-card overflow-hidden">
+                <div class="feature-card rounded-xl overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&q=80"
                          alt="Data patterns and AI analysis visualization"
-                         class="feature-img">
-                    <div class="p-6">
-                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                         class="feature-img opacity-60">
+                    <div class="p-7">
+                        <div class="icon-badge mb-5" style="font-size: 20px; font-weight: 600;">
                             ≈
                         </div>
-                        <h3 class="text-lg font-semibold mb-3 text-text-primary">Pattern Insights (Non-diagnostic)</h3>
-                        <p class="text-text-secondary text-sm leading-relaxed">
-                            AI-assisted pattern recognition highlights general activity rhythms—like more active versus quieter periods, or clusters of sounds. This is <strong>awareness only</strong>, not diagnosis.
+                        <h3 class="text-lg font-semibold mb-3 text-white">Pattern Insights (Non-diagnostic)</h3>
+                        <p class="text-ai-grey text-sm leading-relaxed">
+                            AI-assisted pattern recognition highlights general activity rhythms—like more active versus quieter periods, or clusters of sounds. This is <strong class="text-ai-neon">awareness only</strong>, not diagnosis.
                         </p>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white rounded-lg feature-card overflow-hidden">
+                <div class="feature-card rounded-xl overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=500&h=300&fit=crop&q=80"
                          alt="Mind-body connection and wellness"
-                         class="feature-img">
-                    <div class="p-6">
-                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                         class="feature-img opacity-60">
+                    <div class="p-7">
+                        <div class="icon-badge mb-5" style="font-size: 20px; font-weight: 600;">
                             ⟲
                         </div>
-                        <h3 class="text-lg font-semibold mb-3 text-text-primary">Gut–Brain Awareness</h3>
-                        <p class="text-text-secondary text-sm leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">Gut–Brain Awareness</h3>
+                        <p class="text-ai-grey text-sm leading-relaxed">
                             Log stress levels, sleep quality, meals, and mood so you can explore how your emotional state and daily habits line up with your gut sound patterns.
                         </p>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="bg-white rounded-lg feature-card overflow-hidden">
+                <div class="feature-card rounded-xl overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop&q=80"
                          alt="Doctor patient conversation and collaboration"
-                         class="feature-img">
-                    <div class="p-6">
-                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                         class="feature-img opacity-60">
+                    <div class="p-7">
+                        <div class="icon-badge mb-5" style="font-size: 20px; font-weight: 600;">
                             ↗
                         </div>
-                        <h3 class="text-lg font-semibold mb-3 text-text-primary">Better Conversations</h3>
-                        <p class="text-text-secondary text-sm leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">Better Conversations</h3>
+                        <p class="text-ai-grey text-sm leading-relaxed">
                             Turn your observations into simple summaries you can share with family or discuss with clinicians—so you're not relying only on memory and vague descriptions.
                         </p>
                     </div>
@@ -543,9 +748,9 @@
             </div>
 
             <div class="mt-12 text-center">
-                <div class="bg-white border border-accent-teal/20 p-6 rounded-lg max-w-3xl mx-auto">
-                    <p class="text-text-secondary text-sm leading-relaxed">
-                        <strong class="font-semibold text-text-primary">Important:</strong> NeuroGut Acoustics™ provides insight and awareness to support your wellbeing journey—it does not diagnose, treat, or replace professional medical care.
+                <div class="glass-card p-6 max-w-3xl mx-auto">
+                    <p class="text-ai-grey text-sm leading-relaxed">
+                        <strong class="font-semibold text-ai-cyan">Important:</strong> NeuroGut Acoustics™ provides insight and awareness to support your wellbeing journey—it does not diagnose, treat, or replace professional medical care.
                     </p>
                 </div>
             </div>
@@ -553,47 +758,48 @@
     </section>
 
     <!-- How It Works Section -->
-    <section class="py-20 px-6 md:py-32 bg-white">
+    <section class="py-24 px-6 md:py-40 relative z-10">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">PROCESS /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
                     How it works (early concept)
                 </h2>
             </div>
 
-            <div class="space-y-8">
-                <div class="flex items-start space-x-6">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-teal to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+            <div class="space-y-6">
+                <div class="glass-card p-8 flex items-start space-x-6">
+                    <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-ai-cyan to-ai-neon rounded-2xl flex items-center justify-center text-ai-dark font-bold text-xl shadow-lg shadow-ai-cyan/30">
                         1
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2 text-text-primary">Record short gut sound check-ins</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Record short gut sound check-ins</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             Place your phone gently on your abdomen, press record, and capture 30–60 seconds of natural gut sounds.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-6">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-teal to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div class="glass-card p-8 flex items-start space-x-6">
+                    <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-ai-cyan to-ai-neon rounded-2xl flex items-center justify-center text-ai-dark font-bold text-xl shadow-lg shadow-ai-cyan/30">
                         2
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2 text-text-primary">Tag how you feel</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Tag how you feel</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             Add a quick note: stress level, mood, what you last ate, and any gut sensations (butterflies, heaviness, cramping, gurgling, etc.).
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-6">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-teal to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div class="glass-card p-8 flex items-start space-x-6">
+                    <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-ai-cyan to-ai-neon rounded-2xl flex items-center justify-center text-ai-dark font-bold text-xl shadow-lg shadow-ai-cyan/30">
                         3
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2 text-text-primary">Review gentle patterns over time</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Review gentle patterns over time</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             The app highlights simple trends so you can start connecting the dots between what you feel, what your gut sounds like, and how your days are structured.
                         </p>
                     </div>
@@ -601,7 +807,7 @@
             </div>
 
             <div class="mt-12 text-center">
-                <p class="text-text-secondary text-sm italic max-w-2xl mx-auto">
+                <p class="text-ai-grey/60 text-sm italic max-w-2xl mx-auto">
                     The first version will focus on personal awareness and journalling. Future phases may explore research collaborations and clinician-facing tools.
                 </p>
             </div>
@@ -609,41 +815,42 @@
     </section>
 
     <!-- Who It's For Section -->
-    <section id="who-its-for" class="py-20 px-6 md:py-32 bg-bg-light">
+    <section id="who-its-for" class="py-24 px-6 md:py-40 relative z-10">
         <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">AUDIENCE /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
                     Who It's For
                 </h2>
             </div>
 
             <div class="space-y-6">
-                <div class="flex items-start space-x-4 p-8 bg-white rounded-lg border border-gray-200">
+                <div class="glass-card flex items-start space-x-5 p-10">
                     <div class="audience-icon">01</div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2 text-text-primary">People navigating ongoing gut challenges</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-xl font-semibold mb-3 text-white">People navigating ongoing gut challenges</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             Living with Crohn's, IBD, IBS, post-surgical changes, or unexplained gut symptoms can be confusing and isolating. NeuroGut Acoustics™ helps you observe your own gut patterns in a way that feels concrete—not just "in your head".
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-4 p-8 bg-white rounded-lg border border-gray-200">
+                <div class="glass-card flex items-start space-x-5 p-10">
                     <div class="audience-icon">02</div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2 text-text-primary">People who feel everything in their gut</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-xl font-semibold mb-3 text-white">People who feel everything in their gut</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             If you're someone who "holds stress in their stomach", gets butterflies easily, or feels emotions strongly in their gut, this app is designed to help you make sense of that mind–body connection.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-4 p-8 bg-white rounded-lg border border-gray-200">
+                <div class="glass-card flex items-start space-x-5 p-10">
                     <div class="audience-icon">03</div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2 text-text-primary">Clinicians, researchers, and innovation partners</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Clinicians, researchers, and innovation partners</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             We're exploring how non-invasive gut acoustics and patient-reported data could support future research, digital health tools, and chronic condition self-management.
                         </p>
                     </div>
@@ -653,51 +860,52 @@
     </section>
 
     <!-- Why This Is Different Section -->
-    <section class="py-20 px-6 md:py-32 bg-white">
+    <section class="py-24 px-6 md:py-40 relative z-10">
         <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">DIFFERENTIATORS /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
                     Why NeuroGut Acoustics™ Is Different
                 </h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-2xl text-accent-teal flex-shrink-0">✓</div>
+                <div class="glass-card flex items-start space-x-4 p-8">
+                    <div class="text-3xl text-ai-neon flex-shrink-0 mt-1">✓</div>
                     <div>
-                        <h3 class="text-lg font-semibold mb-2 text-text-primary">Non-invasive sound capture</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">Non-invasive sound capture</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             No special hardware—just your phone and a quiet moment.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-2xl text-accent-teal flex-shrink-0">✓</div>
+                <div class="glass-card flex items-start space-x-4 p-8">
+                    <div class="text-3xl text-ai-neon flex-shrink-0 mt-1">✓</div>
                     <div>
-                        <h3 class="text-lg font-semibold mb-2 text-text-primary">Mind–body patterns, not just metrics</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">Mind–body patterns, not just metrics</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             Combines gut acoustics with stress, sleep, meals, and emotional state.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-2xl text-accent-teal flex-shrink-0">✓</div>
+                <div class="glass-card flex items-start space-x-4 p-8">
+                    <div class="text-3xl text-ai-neon flex-shrink-0 mt-1">✓</div>
                     <div>
-                        <h3 class="text-lg font-semibold mb-2 text-text-primary">Lived experience + clinical background</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">Lived experience + clinical background</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             Built by a founder with 15+ years in patient-facing care and long-term experience with complex gut conditions.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-2xl text-accent-teal flex-shrink-0">✓</div>
+                <div class="glass-card flex items-start space-x-4 p-8">
+                    <div class="text-3xl text-ai-neon flex-shrink-0 mt-1">✓</div>
                     <div>
-                        <h3 class="text-lg font-semibold mb-2 text-text-primary">Designed to complement care</h3>
-                        <p class="text-text-secondary leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-3 text-white">Designed to complement care</h3>
+                        <p class="text-ai-grey leading-relaxed">
                             A self-awareness tool meant to sit alongside professional medical guidance, not replace it.
                         </p>
                     </div>
@@ -707,49 +915,50 @@
     </section>
 
     <!-- For Partners & Innovators Section -->
-    <section id="partners" class="py-20 px-6 md:py-32 bg-bg-light">
+    <section id="partners" class="py-24 px-6 md:py-40 relative z-10">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">PARTNERSHIPS /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
                     For Partners & Innovators
                 </h2>
-                <p class="text-lg text-text-secondary">
+                <p class="text-lg text-ai-grey">
                     Open to research collaboration and innovation partnerships
                 </p>
             </div>
 
-            <div class="bg-white p-8 md:p-12 rounded-lg border border-gray-200">
-                <p class="text-text-secondary mb-6 leading-relaxed">
+            <div class="glass-card p-10 md:p-14">
+                <p class="text-ai-grey mb-8 leading-relaxed text-lg">
                     NeuroGut Acoustics™ sits at the intersection of gut–brain science, digital health, and accessible bio-acoustic sensing. We're currently based on the Gold Coast and actively exploring collaboration with:
                 </p>
 
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-start space-x-3">
-                        <span class="text-accent-teal font-bold flex-shrink-0 text-xl">→</span>
-                        <span class="text-text-secondary leading-relaxed">Health-tech accelerators and hubs (including <strong class="text-text-primary">LuminaX</strong> and the <strong class="text-text-primary">Gold Coast Health & Knowledge Precinct</strong>)</span>
+                <ul class="space-y-5 mb-10">
+                    <li class="flex items-start space-x-4">
+                        <span class="text-ai-cyan font-bold flex-shrink-0 text-2xl mt-1">→</span>
+                        <span class="text-ai-grey leading-relaxed">Health-tech accelerators and hubs (including <strong class="text-white">LuminaX</strong> and the <strong class="text-white">Gold Coast Health & Knowledge Precinct</strong>)</span>
                     </li>
-                    <li class="flex items-start space-x-3">
-                        <span class="text-accent-teal font-bold flex-shrink-0 text-xl">→</span>
-                        <span class="text-text-secondary leading-relaxed">University-based research teams interested in GI acoustics and autonomic nervous system dynamics</span>
+                    <li class="flex items-start space-x-4">
+                        <span class="text-ai-cyan font-bold flex-shrink-0 text-2xl mt-1">→</span>
+                        <span class="text-ai-grey leading-relaxed">University-based research teams interested in GI acoustics and autonomic nervous system dynamics</span>
                     </li>
-                    <li class="flex items-start space-x-3">
-                        <span class="text-accent-teal font-bold flex-shrink-0 text-xl">→</span>
-                        <span class="text-text-secondary leading-relaxed">Clinicians and services supporting Crohn's, IBD, IBS, post-surgical patients, and functional gut disorders</span>
+                    <li class="flex items-start space-x-4">
+                        <span class="text-ai-cyan font-bold flex-shrink-0 text-2xl mt-1">→</span>
+                        <span class="text-ai-grey leading-relaxed">Clinicians and services supporting Crohn's, IBD, IBS, post-surgical patients, and functional gut disorders</span>
                     </li>
-                    <li class="flex items-start space-x-3">
-                        <span class="text-accent-teal font-bold flex-shrink-0 text-xl">→</span>
-                        <span class="text-text-secondary leading-relaxed">Data scientists exploring pattern recognition and non-invasive signal analysis in real-world settings</span>
+                    <li class="flex items-start space-x-4">
+                        <span class="text-ai-cyan font-bold flex-shrink-0 text-2xl mt-1">→</span>
+                        <span class="text-ai-grey leading-relaxed">Data scientists exploring pattern recognition and non-invasive signal analysis in real-world settings</span>
                     </li>
                 </ul>
 
-                <p class="text-text-secondary text-sm mb-8 leading-relaxed">
+                <p class="text-ai-grey/70 text-sm mb-10 leading-relaxed">
                     If you're interested in exploring pilots, feasibility studies, or co-designing future clinical tools, we'd love to connect.
                 </p>
 
                 <div class="text-center">
-                    <a href="#contact" class="btn-primary inline-block font-semibold px-8 py-4 rounded-lg">
-                        Let's Connect
+                    <a href="#contact" class="btn-primary inline-block font-semibold px-10 py-5 rounded-xl">
+                        <span>Let's Connect</span>
                     </a>
                 </div>
             </div>
@@ -757,11 +966,12 @@
     </section>
 
     <!-- About the Founder Section -->
-    <section class="py-20 px-6 md:py-32 bg-white">
+    <section class="py-24 px-6 md:py-40 relative z-10">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-20">
+                <div class="section-label text-center mb-4">FOUNDER /</div>
                 <div class="accent-line"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-primary">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
                     About the Founder
                 </h2>
             </div>
@@ -773,11 +983,11 @@
                          class="w-32 h-32 rounded-full object-cover border-4 border-accent-teal/20">
                 </div>
 
-                <h3 class="text-2xl font-semibold text-center mb-6 text-text-primary">Dr. Michael Bishopp</h3>
-                <p class="text-text-secondary leading-relaxed mb-6">
-                    NeuroGut Acoustics™ is led by <strong class="text-text-primary">Dr. Michael Bishopp</strong>, a Gold Coast–based health founder with over 15 years of experience in patient-facing roles and clinic systems.
+                <h3 class="text-3xl font-display font-semibold text-center mb-8 text-white">Dr. Michael Bishopp</h3>
+                <p class="text-ai-grey leading-relaxed mb-6 text-lg">
+                    NeuroGut Acoustics™ is led by <strong class="text-white">Dr. Michael Bishopp</strong>, a Gold Coast–based health founder with over 15 years of experience in patient-facing roles and clinic systems.
                 </p>
-                <p class="text-text-secondary leading-relaxed">
+                <p class="text-ai-grey leading-relaxed text-lg">
                     After navigating complex gut challenges, bowel surgery, and the emotional rollercoaster that comes with long-term illness, he became obsessed with the gut–brain connection and how we can listen to the body in new ways. NeuroGut Acoustics™ is his attempt to turn lived experience, clinical insight, and modern AI tools into something practical, gentle, and genuinely helpful.
                 </p>
             </div>
@@ -785,52 +995,53 @@
     </section>
 
     <!-- Contact / Stay Updated Section -->
-    <section id="contact" class="py-16 px-6 md:py-24 bg-primary-navy text-white">
+    <section id="contact" class="py-24 px-6 md:py-40 relative z-10">
         <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <div class="accent-line mx-auto" style="background: rgba(20, 184, 166, 0.6);"></div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="text-center mb-16">
+                <div class="section-label text-center mb-4">CONTACT /</div>
+                <div class="accent-line mx-auto"></div>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
                     Stay Updated
                 </h2>
-                <p class="text-lg text-gray-300">
+                <p class="text-lg text-ai-grey">
                     Interested in following the project, collaborating, or exploring research and innovation partnerships?
                 </p>
             </div>
 
             <!-- Contact Form (Front-end only - no backend) -->
-            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10">
+            <div class="glass-card p-10 md:p-12">
                 <form id="contactForm" class="space-y-6">
                     <div>
-                        <label for="name" class="block text-sm font-medium mb-2 text-gray-300">Name</label>
+                        <label for="name" class="block text-sm font-medium mb-2 text-ai-grey">Name</label>
                         <input
                             type="text"
                             id="name"
                             name="name"
                             required
-                            class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent"
+                            class="w-full px-4 py-3 rounded-xl bg-ai-darker/50 text-white border border-ai-grey/20 placeholder-ai-grey/50 focus:outline-none focus:ring-2 focus:ring-ai-cyan focus:border-transparent transition-all"
                             placeholder="Your name"
                         >
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                        <label for="email" class="block text-sm font-medium mb-2 text-ai-grey">Email</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
                             required
-                            class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent"
+                            class="w-full px-4 py-3 rounded-xl bg-ai-darker/50 text-white border border-ai-grey/20 placeholder-ai-grey/50 focus:outline-none focus:ring-2 focus:ring-ai-cyan focus:border-transparent transition-all"
                             placeholder="your@email.com"
                         >
                     </div>
 
                     <div>
-                        <label for="role" class="block text-sm font-medium mb-2 text-gray-300">I'm a...</label>
+                        <label for="role" class="block text-sm font-medium mb-2 text-ai-grey">I'm a...</label>
                         <select
                             id="role"
                             name="role"
                             required
-                            class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent"
+                            class="w-full px-4 py-3 rounded-xl bg-ai-darker/50 text-white border border-ai-grey/20 focus:outline-none focus:ring-2 focus:ring-ai-cyan focus:border-transparent transition-all"
                         >
                             <option value="">Select one...</option>
                             <option value="individual">Individual with gut challenges</option>
@@ -843,12 +1054,12 @@
                     </div>
 
                     <div>
-                        <label for="message" class="block text-sm font-medium mb-2 text-gray-300">Message (optional)</label>
+                        <label for="message" class="block text-sm font-medium mb-2 text-ai-grey">Message (optional)</label>
                         <textarea
                             id="message"
                             name="message"
                             rows="4"
-                            class="w-full px-4 py-3 rounded-lg bg-white text-gray-900 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent"
+                            class="w-full px-4 py-3 rounded-xl bg-ai-darker/50 text-white border border-ai-grey/20 placeholder-ai-grey/50 focus:outline-none focus:ring-2 focus:ring-ai-cyan focus:border-transparent transition-all resize-none"
                             placeholder="Tell us a bit about your interest..."
                         ></textarea>
                     </div>
@@ -856,15 +1067,15 @@
                     <div class="text-center">
                         <button
                             type="submit"
-                            class="btn-primary font-semibold px-8 py-4 rounded-lg"
+                            class="btn-primary font-semibold px-10 py-5 rounded-xl"
                         >
-                            Send Message
+                            <span>Send Message</span>
                         </button>
                     </div>
 
-                    <p class="text-sm text-center text-gray-400 mt-6 leading-relaxed">
-                        <strong class="text-gray-300">Note:</strong> This form is currently a placeholder while the project is in early development.<br>
-                        For collaboration or media enquiries, please email: <a href="mailto:hello@neurogut.acoustics" class="text-accent-teal hover:text-accent-teal/80 underline font-semibold">hello@neurogut.acoustics</a>
+                    <p class="text-sm text-center text-ai-grey/70 mt-6 leading-relaxed">
+                        <strong class="text-ai-grey">Note:</strong> This form is currently a placeholder while the project is in early development.<br>
+                        For collaboration or media enquiries, please email: <a href="mailto:hello@neurogut.acoustics" class="text-ai-cyan hover:text-ai-neon underline font-semibold transition-colors">hello@neurogut.acoustics</a>
                     </p>
                 </form>
             </div>
@@ -872,21 +1083,21 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary-dark text-gray-400 py-12 px-6">
+    <footer class="bg-ai-darker/80 text-ai-grey py-16 px-6 relative z-10 border-t border-ai-grey/10">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-white mb-2">NeuroGut Acoustics™</h3>
-                <p class="text-gray-400 text-sm">Non-invasive GI sound insights and gut–brain awareness</p>
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-display font-bold text-white mb-3 bg-clip-text text-transparent bg-gradient-to-r from-ai-cyan via-ai-neon to-ai-purple">NeuroGut Acoustics™</h3>
+                <p class="text-ai-grey text-sm">Non-invasive GI sound insights and gut–brain awareness</p>
             </div>
 
             <!-- Disclaimer -->
-            <div class="bg-white/5 border border-white/10 p-6 rounded-lg mb-8 max-w-4xl mx-auto">
-                <p class="text-sm text-gray-300 leading-relaxed">
+            <div class="glass-card p-8 mb-10 max-w-4xl mx-auto border-ai-grey/10">
+                <p class="text-sm text-ai-grey leading-relaxed">
                     <strong class="text-white">Important Notice:</strong> NeuroGut Acoustics™ is currently in development. It does not diagnose, treat, cure, or prevent any disease and is not a substitute for professional medical advice, diagnosis, or care. Always consult with qualified healthcare professionals regarding any health concerns or before making changes to your care routine.
                 </p>
             </div>
 
-            <div class="text-center text-sm text-gray-500">
+            <div class="text-center text-sm text-ai-grey/60">
                 <p>&copy; 2025 NeuroGut Acoustics™. All rights reserved.</p>
                 <p class="mt-2">Built with care on the Gold Coast, Australia 🇦🇺</p>
             </div>
