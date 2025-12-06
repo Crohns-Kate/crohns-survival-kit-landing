@@ -131,6 +131,36 @@
             justify-content: center;
             font-size: 24px;
         }
+
+        /* Simple icon symbols */
+        .problem-icon {
+            width: 56px;
+            height: 56px;
+            background: #E0F2FE;
+            border: 2px solid #14B8A6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #14B8A6;
+            flex-shrink: 0;
+        }
+
+        .audience-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #14B8A6 0%, #0F9688 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 antialiased">
@@ -175,7 +205,7 @@
             </div>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="text-3xl mb-4">🌊</div>
+                    <div class="problem-icon mb-4">~</div>
                     <h3 class="text-xl font-semibold mb-3 text-text-primary">Unpredictable Days</h3>
                     <p class="text-text-secondary leading-relaxed">
                         Some days your gut feels calm, other days it's all over the place—and you're not always sure why.
@@ -183,7 +213,7 @@
                 </div>
 
                 <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="text-3xl mb-4">😰</div>
+                    <div class="problem-icon mb-4">⚡</div>
                     <h3 class="text-xl font-semibold mb-3 text-text-primary">Stress & Nerves</h3>
                     <p class="text-text-secondary leading-relaxed">
                         You notice stress makes things worse, but it's hard to see the exact patterns or what might help.
@@ -191,7 +221,7 @@
                 </div>
 
                 <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="text-3xl mb-4">❓</div>
+                    <div class="problem-icon mb-4">?</div>
                     <h3 class="text-xl font-semibold mb-3 text-text-primary">Hidden Activity</h3>
                     <p class="text-text-secondary leading-relaxed">
                         It's difficult to know what's actually happening inside—gut sounds and rhythms are invisible to you.
@@ -199,7 +229,7 @@
                 </div>
 
                 <div class="bg-bg-light p-8 rounded-lg border border-gray-200">
-                    <div class="text-3xl mb-4">💬</div>
+                    <div class="problem-icon mb-4">···</div>
                     <h3 class="text-xl font-semibold mb-3 text-text-primary">Hard to Explain</h3>
                     <p class="text-text-secondary leading-relaxed">
                         When talking to doctors or family, it can be tough to describe how you're really feeling day-to-day.
@@ -229,8 +259,8 @@
                          alt="Smartphone on abdomen for sound recording"
                          class="feature-img">
                     <div class="p-6">
-                        <div class="icon-badge mb-4">
-                            🎙️
+                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                            ♪
                         </div>
                         <h3 class="text-lg font-semibold mb-3 text-text-primary">GI Sound Check</h3>
                         <p class="text-text-secondary text-sm leading-relaxed">
@@ -245,8 +275,8 @@
                          alt="Data patterns and AI analysis visualization"
                          class="feature-img">
                     <div class="p-6">
-                        <div class="icon-badge mb-4">
-                            📊
+                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                            ≈
                         </div>
                         <h3 class="text-lg font-semibold mb-3 text-text-primary">Pattern Insights</h3>
                         <p class="text-text-secondary text-sm leading-relaxed">
@@ -261,8 +291,8 @@
                          alt="Mind-body connection and wellness"
                          class="feature-img">
                     <div class="p-6">
-                        <div class="icon-badge mb-4">
-                            🧠
+                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                            ⟲
                         </div>
                         <h3 class="text-lg font-semibold mb-3 text-text-primary">Gut–Brain Awareness</h3>
                         <p class="text-text-secondary text-sm leading-relaxed">
@@ -277,8 +307,8 @@
                          alt="Doctor patient conversation and collaboration"
                          class="feature-img">
                     <div class="p-6">
-                        <div class="icon-badge mb-4">
-                            💡
+                        <div class="icon-badge mb-4" style="font-size: 20px; font-weight: 600;">
+                            ↗
                         </div>
                         <h3 class="text-lg font-semibold mb-3 text-text-primary">Better Conversations</h3>
                         <p class="text-text-secondary text-sm leading-relaxed">
@@ -310,7 +340,7 @@
 
             <div class="space-y-6">
                 <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-3xl flex-shrink-0">🙋</div>
+                    <div class="audience-icon">01</div>
                     <div>
                         <h3 class="text-xl font-semibold mb-2 text-text-primary">People navigating ongoing gut challenges</h3>
                         <p class="text-text-secondary leading-relaxed">
@@ -320,7 +350,7 @@
                 </div>
 
                 <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-3xl flex-shrink-0">👨‍👩‍👧</div>
+                    <div class="audience-icon">02</div>
                     <div>
                         <h3 class="text-xl font-semibold mb-2 text-text-primary">Parents supporting teens and young adults</h3>
                         <p class="text-text-secondary leading-relaxed">
@@ -330,7 +360,7 @@
                 </div>
 
                 <div class="flex items-start space-x-4 p-6 bg-bg-light rounded-lg border border-gray-200">
-                    <div class="text-3xl flex-shrink-0">🩺</div>
+                    <div class="audience-icon">03</div>
                     <div>
                         <h3 class="text-xl font-semibold mb-2 text-text-primary">Clinicians and innovation partners</h3>
                         <p class="text-text-secondary leading-relaxed">
